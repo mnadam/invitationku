@@ -103,4 +103,38 @@ class Home extends BaseController
 
         return redirect()->to(base_url('tambah_tamu'));
     }
+
+
+    // public function delete_all()
+    // {
+    //     //model initialize
+    //     $this->UserTamuModel->purgeDeleted();
+
+    //     return redirect()->to(base_url('tambah_tamu'));
+    // }
+
+
+    public function prosesTambahTamu()
+    {
+
+        $user =  $this->UserTamuModel->findAll();
+        $id = '';
+        $uniq_code = $this->request->getVar('kode_unik');
+        $nama = $this->request->getVar('nama');
+        $no_telp = $this->request->getVar('no_telp');
+        $alamat = $this->request->getVar('alamat');
+
+        $simpandata = [
+            'id' => $id,
+            'uniq_code' => $uniq_code,
+            'nama_tamu' => $nama,
+            'no_telp' => $no_telp,
+            'alamat' => $alamat
+        ];
+
+        $this->UserTamuModel->insert($simpandata);
+        session()->setFlashdata('message', 'Berhasil Disimpan');
+
+        return redirect()->to(base_url('tambah_tamu'));
+    }
 }

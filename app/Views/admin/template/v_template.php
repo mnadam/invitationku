@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css">
     <link rel="stylesheet" href="assets/css/pages/simple-datatables.css">
 
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="assets/extensions/@fortawesome/fontawesome-free/css/all.min.css">
+
 
 </head>
 
@@ -389,6 +392,7 @@
             <!-- END FOOTER -->
         </div>
     </div>
+
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/app.js"></script>
 
@@ -399,6 +403,9 @@
     <!-- DATA TABLE -->
     <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
     <script src="assets/js/pages/simple-datatables.js"></script>
+
+
+
 
 </body>
 

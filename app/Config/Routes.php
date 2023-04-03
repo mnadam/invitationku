@@ -34,6 +34,8 @@ $routes->get('/admin', 'Home::admin');
 $routes->get('/user_tamu', 'Home::user_tamu');
 $routes->get('/tambah_tamu', 'Home::tambah_tamu');
 $routes->post('/prosesExcel', 'Home::prosesExcel');
+$routes->post('/prosesTambahTamu', 'Home::prosesTambahTamu');
+// $routes->post('/delete_all', 'Home::delete_all');
 
 
 /*

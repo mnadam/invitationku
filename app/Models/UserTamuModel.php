@@ -11,5 +11,5 @@ class UserTamuModel extends Model
 
 
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['uniq_code', 'nama_tamu', 'alamat'];
+    protected $allowedFields = ['uniq_code', 'nama_tamu', 'no_telp',  'alamat'];
 }
