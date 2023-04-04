@@ -82,7 +82,8 @@ class Home extends BaseController
             $id = $row[0];
             $uniq_code = $row[1];
             $nama = $row[2];
-            $alamat = $row[3];
+            $no_telp = $row[3];
+            $alamat = $row[4];
 
             $user =  $this->UserTamuModel->findAll();
 
@@ -93,7 +94,7 @@ class Home extends BaseController
             } else {
 
                 $simpandata = [
-                    'id' => $id, 'uniq_code' => random_string('alnum', 16), 'nama_tamu' => $nama,  'alamat' => $alamat
+                    'id' => $id, 'uniq_code' => random_string('alnum', 16), 'nama_tamu' => $nama, 'no_telp' => $no_telp, 'alamat' => $alamat
                 ];
 
                 $this->UserTamuModel->insert($simpandata);
