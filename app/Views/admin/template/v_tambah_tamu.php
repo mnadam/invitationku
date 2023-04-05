@@ -67,7 +67,7 @@
                             <td> <?= $a['no_telp']; ?></td>
                             <td> <?= $a['alamat']; ?></td>
                             <td>
-                                <a class="text-warning" href="<?php echo base_url('tamu/edit'); ?>"> <i class="bi bi-pencil-fill"> </i> </a> |
+                                <a class="text-warning" href="" data-bs-toggle="modal" data-bs-target="#default<?php echo $a['uniq_code']; ?>"> <i class="bi bi-pencil-fill"> </i> </a> |
                                 <a class="text-danger" href="<?php echo base_url('tamu/hapus'); ?>"> <i class="bi bi-trash-fill"> </i> </a>
 
                             </td>
@@ -80,7 +80,7 @@
     </div>
 
 
-    <!--Basic Modal -->
+    <!--Basic Modal Tambah -->
     <div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
@@ -128,6 +128,61 @@
             </div>
         </div>
     </div>
+
+
+
+    <?php foreach ($user as $a) : ?>
+        <!--Basic Modal EDIT -->
+        <div class="modal fade text-left" id="default<?php echo $a['uniq_code']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel1">Tambah Data Undangan</h5>
+                        <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+
+                    <form method="post" action="<?php echo base_url('prosesUpdate/' . $a['id']); ?>" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <?php $random = random_string('alnum', 16); ?>
+                            <?= csrf_field(); ?>
+
+                            <div class="form-group">
+                                <label class="col-form-label">Uniq Code</label>
+                                <input type="text" class="form-control" name="kode_unik" value="<?php echo $a['uniq_code']; ?>" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-form-label">Nama </label>
+                                <input type="text" class="form-control" name="nama" value="<?php echo $a['nama_tamu']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label">No Telpon / Whatsapp </label>
+                                <input type="number" class="form-control" name="no_telp" value="<?php echo $a['no_telp']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label">Alamat</label>
+                                <textarea class="form-control" id="message-text" name="alamat"> <?php echo $a['alamat']; ?></textarea>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="" class="btn" data-bs-dismiss="modal">
+                                <i class="bx bx-x d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Close</span>
+                            </button>
+                            <button type="submit" class="btn btn-primary ml-1">
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Edit</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php endforeach;  ?>
+
 
 </section>
 

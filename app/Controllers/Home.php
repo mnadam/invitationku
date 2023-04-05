@@ -138,4 +138,40 @@ class Home extends BaseController
 
         return redirect()->to(base_url('tambah_tamu'));
     }
+
+
+    public function prosesUpdate($id)
+    {
+
+        $uniq_code = $this->request->getPost('kode_unik');
+        $nama = $this->request->getPost('nama');
+        $no_telp = $this->request->getPost('no_telp');
+        $alamat = $this->request->getPost('alamat');
+
+        // $simpandata = ($id, [
+        //     'uniq_code' => $uniq_code,
+        //     'nama_tamu' => $nama,
+        //     'no_telp' => $no_telp,
+        //     'alamat' => $alamat
+        // ]);
+
+        $this->UserTamuModel->update($id, [
+            'uniq_code' => $uniq_code,
+            'nama_tamu' => $nama,
+            'no_telp' => $no_telp,
+            'alamat' => $alamat
+        ]);
+
+        session()->setFlashdata('message', 'Berhasil Diedit');
+
+        return redirect()->to(base_url('tambah_tamu'));
+
+
+
+        // print_r($id);
+        // print_r($uniq_code);
+        // print_r($nama);
+        // print_r($no_telp);
+        // print_r($alamat);
+    }
 }
