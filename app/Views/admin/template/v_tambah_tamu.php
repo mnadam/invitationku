@@ -67,8 +67,10 @@
                             <td> <?= $a['no_telp']; ?></td>
                             <td> <?= $a['alamat']; ?></td>
                             <td>
+
                                 <a class="text-warning" href="" data-bs-toggle="modal" data-bs-target="#default<?php echo $a['uniq_code']; ?>"> <i class="bi bi-pencil-fill"> </i> </a> |
                                 <a class="text-danger" href="<?php echo base_url('tamu/hapus'); ?>"> <i class="bi bi-trash-fill"> </i> </a>
+
 
                             </td>
                         </tr>
@@ -130,6 +132,28 @@
     </div>
 
 
+    <?php foreach ($user as $a) : ?>
+        <!--Delete Modal -->
+        <div id="defaultEdit" class="modal fade">
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header flex-column">
+                        <div class="icon-box">
+                            <i class="material-icons">&#xE5CD;</i>
+                        </div>
+                        <h4 class="modal-title w-100">Are you sure?</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <form method="post" action="<?php echo base_url('prosesDelete/' . $a['id']); ?>" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <p>Do you really want to delete these records? This process cannot be undone.</p>
+                        </div>
+
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+
+
 
     <?php foreach ($user as $a) : ?>
         <!--Basic Modal EDIT -->
@@ -176,13 +200,13 @@
                                 <i class="bx bx-check d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block">Edit</span>
                             </button>
+
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     <?php endforeach;  ?>
-
 
 </section>
 
