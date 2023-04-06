@@ -152,6 +152,13 @@
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php endforeach;  ?>
+
 
 
 
@@ -209,8 +216,5 @@
     <?php endforeach;  ?>
 
 </section>
-
-
-
 
 <?= $this->endSection(); ?>
