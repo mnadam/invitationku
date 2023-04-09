@@ -68,7 +68,7 @@
                             <td> <?= $a['alamat']; ?></td>
                             <td>
                                 <a class="text-warning"> <i class="bi bi-pencil-fill"> </i> </a> |
-                                <a class="text-danger" href="" data-bs-toggle="modal" data-bs-target="#defaultEdit"> <i class="bi bi-trash-fill"> </i> </a>
+                                <a class="text-danger" href="" data-bs-toggle="modal" data-bs-target="#defaulHapus<?php echo $a['id']; ?>"> <i class="bi bi-trash-fill"> </i> </a>
 
                             </td>
                         </tr>
@@ -131,23 +131,26 @@
 
     <?php foreach ($user as $a) : ?>
         <!--Delete Modal -->
-        <div id="defaultEdit" class="modal fade">
-            <div class="modal-dialog modal-confirm">
+        <div id="defaulHapus<?php echo $a['id']; ?>" class="modal fade">
+            <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header flex-column">
-                        <div class="icon-box">
-                            <i class="material-icons">&#xE5CD;</i>
-                        </div>
-                        <h4 class="modal-title w-100">Are you sure?</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <form method="post" action="<?php echo base_url('prosesDelete/' . $a['id']); ?>" enctype="multipart/form-data">
-                        <div class="modal-body">
-                            <p>Do you really want to delete these records? This process cannot be undone.</p>
-                        </div>
+                    <div class="modal-header">
+                        <div class="container d-flex pl-0">
 
-                        <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <h5 class="text text-danger" class="modal-title ml-2" id="exampleModalLabel"> <span class="bi bi-trash-fill"> </span> Delete Data</h5>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" action="<?php echo base_url('prosesHapusTamu'); ?>" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <p class="text-muted">Apakah Kamu Yakin Akan Menghapus <?php echo $a['nama_tamu'] ?> ?</p>
+                            <input type="hidden" class="form-control" name="id" value="<?php echo $a['id']; ?>">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </div>
                     </form>

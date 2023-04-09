@@ -138,4 +138,15 @@ class Home extends BaseController
 
         return redirect()->to(base_url('tambah_tamu'));
     }
+
+    public function prosesHapusTamu()
+    {
+
+        $id = $this->request->getPost('id');
+
+        $this->UserTamuModel->delete($id);
+        session()->setFlashdata('message', 'Berhasil Disimpan');
+
+        return redirect()->to(base_url('tambah_tamu'));
+    }
 }
