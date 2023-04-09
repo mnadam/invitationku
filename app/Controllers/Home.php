@@ -140,6 +140,7 @@ class Home extends BaseController
     }
 
 
+
     public function prosesUpdate($id)
     {
 
@@ -173,5 +174,16 @@ class Home extends BaseController
         // print_r($nama);
         // print_r($no_telp);
         // print_r($alamat);
+    }
+
+    public function prosesHapusTamu()
+    {
+
+        $id = $this->request->getPost('id');
+
+        $this->UserTamuModel->delete($id);
+        session()->setFlashdata('message', 'Berhasil Disimpan');
+
+        return redirect()->to(base_url('tambah_tamu'));
     }
 }

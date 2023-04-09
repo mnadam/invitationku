@@ -36,6 +36,8 @@ $routes->get('/tambah_tamu', 'Home::tambah_tamu');
 $routes->post('/prosesExcel', 'Home::prosesExcel');
 $routes->post('/prosesTambahTamu', 'Home::prosesTambahTamu');
 $routes->add('/prosesUpdate/(:segment)', 'Home::prosesUpdate/$1');
+$routes->post('/prosesHapusTamu', 'Home::prosesHapusTamu');
+
 // $routes->post('/delete_all', 'Home::delete_all');
 
 
